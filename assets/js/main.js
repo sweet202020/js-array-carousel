@@ -12,22 +12,32 @@ const immaginiCarosello = [
 const carouselInner = document.querySelector('.slider>.carousel-inner');
 
 //utilizzo il ciclo for pr stampare le immagini
-let activeImage= immaginiCarosello [0]
+let activeImage= 0
 console.log(activeImage); 
 for (i=0; i < immaginiCarosello.length; i++ ){
     const immagine = immaginiCarosello [i];
     console.log(immagine);
     //inserisco le varie immagini nel carousel-inner
-    const carouselItem = `<div class="${i===0 ? 'active' : ''}carousel-item"><img src=${immagine}></div>`;
+    //aggiungo la classe active in posizione 0
+    const carouselItem = `<div class="${i===activeImage ? 'active' : ''} carousel-item"><img src=${immagine}></div>`;
     console.log(carouselItem);
     carouselInner.insertAdjacentHTML("beforeend", carouselItem);
 
 }
 
-//aggiungo l'active nella prima immagine
+//funzione per il click del next
 const buttonNext = document.querySelector('.next')
 buttonNext.addEventListener("click", function(){
-    
+    console.log('next')
+    const currentActive = document.querySelector("div.active")
+    console.log(currentActive)
 
+    currentActive.classList.remove('active')
+
+    activeImage++
+
+    const nextImg = document.querySelector()
+    console.log(nextImg)
+    nextImg.classList.add('active')
 
 })
